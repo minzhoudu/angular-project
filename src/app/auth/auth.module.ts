@@ -7,9 +7,9 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [AuthComponent],
   imports: [
-      ReactiveFormsModule,
-      RouterModule.forChild([{ path: 'auth', component: AuthComponent }]),
-      SharedModule,
+    ReactiveFormsModule,
+    RouterModule.forChild([{ path: 'auth', component: AuthComponent }]),
+    SharedModule,
   ],
   exports: [],
 })
