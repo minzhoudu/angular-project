@@ -1,5 +1,3 @@
-import { Ingredient } from '../../shared/ingredient.model';
+import { AppState } from '../../types/State.types';
 
-export const selectShoppingList = (state: {
-  shoppingList: { ingredients: Ingredient[] };
-}) => state.shoppingList;
+export const selectShoppingList = (state: AppState) => state.shoppingList;

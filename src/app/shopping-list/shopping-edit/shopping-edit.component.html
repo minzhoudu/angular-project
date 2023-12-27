@@ -53,7 +53,7 @@
             class="btn btn-danger"
             type="button"
             (click)="onDelete()"
-            [disabled]="editItemIndex === null || editItemIndex === undefined"
+            [disabled]="editMode === false"
           >
             Delete
           </button>

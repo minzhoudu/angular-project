@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
+import { addIngredients } from '../shopping-list/store/shoppint-list.actions';
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
@@ -16,8 +17,8 @@ export class RecipeService {
 
   constructor(
     private slService: ShoppingListService,
-    private authService: AuthService,
-    private http: HttpClient
+    private http: HttpClient,
+    private store: Store
   ) {}
 
   storeRecipes() {
@@ -59,7 +60,8 @@ export class RecipeService {
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
+    // this.slService.addIngredients(ingredients);
+    this.store.dispatch(addIngredients({ ingredients }));
   }
 
   addRecipe(recipe: Recipe) {
