@@ -9,7 +9,6 @@ import {
 import { NgForm, NgModel } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Ingredient } from '../../shared/ingredient.model';
-import { ShoppingListService } from '../shopping-list.service';
 import {
   addIngredient,
   deleteIngredient,
@@ -30,7 +29,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   @ViewChild('form') slForm: NgForm;
   @ViewChild('name') name: ElementRef;
 
-  constructor(private slService: ShoppingListService, private store: Store) {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.store.select(selectShoppingList).subscribe((state) => {

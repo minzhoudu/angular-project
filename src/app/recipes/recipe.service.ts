@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { Ingredient } from '../shared/ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
 import { addIngredients } from '../shopping-list/store/shoppint-list.actions';
 
@@ -15,11 +14,7 @@ export class RecipeService {
 
   private recipes: Recipe[] = [];
 
-  constructor(
-    private slService: ShoppingListService,
-    private http: HttpClient,
-    private store: Store
-  ) {}
+  constructor(private http: HttpClient, private store: Store) {}
 
   storeRecipes() {
     this.http
